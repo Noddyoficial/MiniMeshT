@@ -13,7 +13,7 @@ Use it to chat, explore the mesh, or as a lightweight basis for your own tools.
  * Pretty minimal dependencies: just `bleak` for Bluetooth, `pyserial-asyncio` for serial ports, and `pytest`.
  * Ships with a minimal Protobuf encoder/decoder (~550 lines excluding comments and blanks. Also available standalone: [pb.py](https://github.com/allanrbo/pb.py/)).
  * Hackable base: ~1,200 lines of Python. Easy to fork and extend.
- * Deliberately does not support DMs. Their security model are thouroughly broken anyway. See e.g. <a href="https://meshmarauder.net/">Meshmarauder</a>.
+ * Deliberately does not support DMs. Their security model are thoroughly broken anyway. See e.g. <a href="https://meshmarauder.net/">Meshmarauder</a>.
 
 ![Illustration of laptop running MiniMeshT](./readme_graphics/laptop.jpeg)
 
