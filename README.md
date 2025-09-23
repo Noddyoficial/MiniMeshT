@@ -10,7 +10,7 @@ Use it to chat, explore the mesh, or as a lightweight basis for your own tools.
 
 **What makes it different?**
 - No dependency on official the Meshtastic libraries or protobufs.
-- Pretty minimal dependencies: just `bleak`, `pyserial-asyncio`, `pytest`.
+- Pretty minimal dependencies: just `bleak` for Bluetooth, `pyserial-asyncio` for serial ports, and `pytest`.
 - Ships with a minimal Protobuf encoder/decoder (~550 lines excluding comments and blanks. Also available standalone: [pb.py](https://github.com/allanrbo/pb.py/)).
 - Hackable base: ~1,200 lines of Python. Easy to fork and extend.
 
