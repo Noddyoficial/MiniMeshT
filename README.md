@@ -2,9 +2,17 @@
 
 Author: Allan Riordan Boll
 
-Simple terminal based chat client compatible with devices running the Meshtastic firmware. Tested with firmware v2.6.11. Does not depend on any official Meshtastic code (no libraries, no proto definitions). Very minimal dependencies: `bleak` for Bluetooth, `pyserial-asyncio`, and `pytest`. (Noteworthy: no protobuf dependencies!)
+_A tiny terminal chat client for Meshtastic. No protobufs, no bloat._
 
-Has an irssi-like UI:
+MiniMeshT is a simple, irssi-style terminal chat client that talks to devices running Meshtastic firmware (tested with v2.6.11). 
+
+Use it to chat, explore the mesh, or as a lightweight basis for your own tools.
+
+**What makes it different?**
+- No dependency on official the Meshtastic libraries or protobufs.
+- Pretty minimal dependencies: just `bleak`, `pyserial-asyncio`, `pytest`.
+- Ships with a minimal Protobuf encoder/decoder (~550 lines excluding comments and blanks. Also available standalone: [pb.py](https://github.com/allanrbo/pb.py/)).
+- Hackable base: ~1,200 lines of Python. Easy to fork and extend.
 
 ![Illustration of laptop running MiniMeshT](./readme_graphics/laptop.jpeg)
 
@@ -12,15 +20,13 @@ Also has a screen to list detected nodes:
 
 ![Screenshot of node info list](./readme_graphics/nodelist.png)
 
-Keyboard keys:
- * Ctrl+G: View node list
- * Ctrl+N: Next channel
- * Ctrl+P: Previous channel
- * Ctrl+C: Exit
-
-The goal is minimalism, and to serve as a basis for other clients that don't want to depend on the official libraries and protos.
-
-Uses a novel tiny embedded Protobuf encoder and decoder: [pb.py](https://github.com/allanrbo/pb.py/). This Protobuf library does not use the conventional codegen from .proto files, but instead simply allows for lightweight embedded schemas straight in the Python source code. You will find these in the top of mesht_device.py. I did this because for this small project I didn't feel like depending on the more heavyweight ecosystem of codegen with protoc. It also allows me to not depend on the official Meshtastic protobufs, of which most message types and fields I do not care about.
+## Keyboard shortcuts
+| Keys   | Action           |
+|--------|------------------|
+| Ctrl+G | View node list   |
+| Ctrl+N | Next channel     |
+| Ctrl+P | Previous channel |
+| Ctrl+C | Exit             |
 
 ## Running
 
@@ -150,3 +156,5 @@ async def run():
 
 asyncio.run(run())
 ```
+
+As mentioned earlier, MiniMeshT uses a novel tiny embedded Protobuf encoder and decoder: [pb.py](https://github.com/allanrbo/pb.py/). This Protobuf library does not use the conventional codegen from .proto files, but instead simply allows for lightweight embedded schemas straight in the Python source code. You will find these in the top of `mesht_device.py`. I did this because for this small project I didn't feel like depending on the more heavyweight ecosystem of codegen with protoc. It also allows me to not depend on the official Meshtastic protobufs, of which most message types and fields I do not care about.
