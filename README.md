@@ -91,7 +91,7 @@ docker run --rm -it \
 
 I encourage you to use this as a basis for your own client, if you like myself also don't feel like depending on the official libraries and protos.
 
-All you really need are these files, which are 1194 lines of code as of writing (2025-09-22). Note this includes the proto library `pb.py`, and proto schema definitions embedded in `mesht_device.py`!
+All you really need are these files, which are 1194 lines of code as of writing (2025-09-22). Note this includes the proto library `pb.py`, and proto schema definitions embedded in `mesht_device.py` (around 100 lines)!
 
  * mesht_device.py
  * transport_ble.py
