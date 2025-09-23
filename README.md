@@ -91,7 +91,7 @@ docker run --rm -it \
 
 I encourage you to use this as a basis for your own client, if you like myself also don't feel like depending on the official libraries and protos.
 
-All you really need are these files, which 1194 lines of code as of writing (2025-09-22). Note this includes the proto library!
+All you really need are these files, which are 1194 lines of code as of writing (2025-09-22). Note this includes the proto library `pb.py`, and proto schema definitions embedded in `mesht_device.py`!
 
  * mesht_device.py
  * transport_ble.py
@@ -99,12 +99,12 @@ All you really need are these files, which 1194 lines of code as of writing (202
  * transport_tcp.py
  * pb.py
 
-The UI and file persistence (which you probably don't want if you are rolling your own client) are implemented in
+The UI and file persistence, which you probably don't want if you are rolling your own client, but may find useful for inspiration, are implemented in
 
  * chat.py
  * mesht_db.py
 
-An example that just uses the basic mesht_device.py:
+An example that uses just the basic `mesht_device.py` and a transport:
 ```py
 import asyncio
 
