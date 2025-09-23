@@ -1,8 +1,8 @@
 # MiniMeshT
 
-Author: Allan Riordan Boll
-
 _A tiny terminal chat client for Meshtastic. No protobufs, no bloat._
+
+Author: Allan Riordan Boll
 
 MiniMeshT is a simple, irssi-style terminal chat client that talks to devices running Meshtastic firmware (tested with v2.6.11). 
 
