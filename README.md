@@ -78,7 +78,7 @@ mkdir -p data
 docker run --rm -it \
     --device /dev/ttyACM0 \
     -v "$(pwd)/data:/app/data" \
-    minimesht --serial-port /dev/ttyACM0
+    allanrbo/minimesht:latest --serial-port /dev/ttyACM0
 ```
 
 ## Forking and reusing this code
